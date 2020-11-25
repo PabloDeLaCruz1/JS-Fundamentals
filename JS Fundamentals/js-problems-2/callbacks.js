@@ -74,10 +74,26 @@ let micah = new Elephant("Micah", 143, ["trotting", "playing tic tac toe", "doin
 
 let herd = [ellie, charlie, kate, micah];
 
-Elephant.prototype.paradeHelper = function(elephant){
- console.log(elephant.name + " is killing the dance floor");
+Elephant.prototype.paradeHelper = function (elephant) {
+    console.log(elephant.name + " is killing the dance floor");
 }
 
-herd.forEach(ele => {
-    ele.paradeHelper(ele);
-});
+// herd.forEach(ele => {
+//     ele.paradeHelper(ele);
+// });
+
+
+//Phase IV: Closures
+function dinerBreakfast() {
+    let order = "I'd like cheesy scrambled eggs please.";
+
+    return (food) => {
+        order = order.slice(0, order.length - 8) + " and " + food + " please."
+        return console.log(order);
+    }
+}
+
+
+let bfastOrder = dinerBreakfast();
+bfastOrder("chocolate chip pancakes");
+bfastOrder("grits");
